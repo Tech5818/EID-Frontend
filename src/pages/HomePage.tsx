@@ -1,4 +1,4 @@
-import { FullPage } from "../components/FullPage";
+import { FullPage } from "@components/FullPage";
 
 export const HomePage = () => {
   return (

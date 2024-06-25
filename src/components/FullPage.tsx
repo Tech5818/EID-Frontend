@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import PageNavigation from "./PageNavigation";
+import PageNavigation from "@components/PageNavigation";
 
 export const FullPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
