@@ -1,9 +1,8 @@
-import { ReactNode } from "react";
+import { ColorKeys } from "@/types/ColorTypes";
 import styled from "styled-components";
 
 interface TypograhpyProps {
-  chidren: ReactNode;
-  color: "text" | "text_grey" | "text_white";
+  color: ColorKeys;
 }
 
 const Base = styled.p<TypograhpyProps>`
@@ -12,7 +11,7 @@ const Base = styled.p<TypograhpyProps>`
 
 const Label = styled(Base)`
   font-weight: 600;
-  font-size: 2px;
+  font-size: 20px;
 `;
 
 const Title = styled(Base)`

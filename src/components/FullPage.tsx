@@ -2,6 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import PageNavigation from "@components/PageNavigation";
+import { Section } from "./atomic/Section";
+import { Header } from "./Header";
+import { HomeSection } from "./sections/HomeSection";
 
 export const FullPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -9,9 +12,9 @@ export const FullPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (event: WheelEvent) => {
-    if (event.deltaY > 0) {
+    if (event.deltaY > 10) {
       nextSection();
-    } else {
+    } else if (event.deltaY < -10) {
       previousSection();
     }
   };
@@ -34,8 +37,6 @@ export const FullPage = () => {
   }, [window]);
 
   useEffect(() => {
-    console.log(containerRef.current?.children[0]);
-
     setTimeout(() => {
       containerRef.current?.children[0].scrollIntoView({
         behavior: "smooth",
@@ -54,16 +55,15 @@ export const FullPage = () => {
   return (
     <>
       <Container ref={containerRef}>
+        <Header />
         <FullPageItem ref={(el) => (sectionsRef.current[0] = el!)}>
-          <Section style={{ backgroundColor: "lightcoral" }}>Section 1</Section>
+          <HomeSection />
         </FullPageItem>
         <FullPageItem ref={(el) => (sectionsRef.current[1] = el!)}>
-          <Section style={{ backgroundColor: "lightseagreen" }}>
-            Section 2
-          </Section>
+          <Section>Section 2</Section>
         </FullPageItem>
         <FullPageItem ref={(el) => (sectionsRef.current[2] = el!)}>
-          <Section style={{ backgroundColor: "lightblue" }}>Section 3</Section>
+          <Section>Section 3</Section>
         </FullPageItem>
       </Container>
       <PageNavigation
@@ -78,16 +78,6 @@ export const FullPage = () => {
 const Container = styled.div``;
 
 const FullPageItem = styled.div`
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  transition: transform 1s ease;
-`;
-
-const Section = styled.div`
   height: 100vh;
   width: 100%;
   display: flex;

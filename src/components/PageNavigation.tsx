@@ -31,23 +31,23 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
 
 const Nav = styled.nav`
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 50%;
+  right: 50px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   z-index: 1000;
 `;
 
 const NavItem = styled.div<{ $active?: boolean }>`
   cursor: pointer;
   padding: 10px;
-  background-color: ${({ $active }) => ($active ? "#333" : "#ccc")};
-  color: ${({ $active }) => ($active ? "#fff" : "#333")};
+  background-color: ${({ $active, theme }) =>
+    $active ? theme.color.blue : theme.color.grey};
   border-radius: 50%;
   text-align: center;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 `;
 
 export default PageNavigation;
