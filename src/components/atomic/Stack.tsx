@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
 interface StackProps {
-  justify?:
+  $justify?:
     | "center"
     | "space-around"
     | "space-between"
     | "space-evenly"
     | "flex-end";
-  align?: "center" | "flex-end";
-  spacing?: number;
+  $align?: "center" | "flex-end";
+  $spacing?: number;
 }
 
 const Stack = styled.div<StackProps>`
   display: flex;
-  justify-content: ${({ justify }) => (justify ? justify : "flex-start")};
-  align-items: ${({ align }) => (align ? align : "flext-start")};
-  gap: ${({ spacing }) => spacing};
+  justify-content: ${({ $justify }) => ($justify ? $justify : "flex-start")};
+  align-items: ${({ $align }) => ($align ? $align : "flext-start")};
+  gap: ${({ $spacing }) => $spacing}px;
 `;
 
 export const HStack = styled(Stack)`

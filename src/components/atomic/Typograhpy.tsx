@@ -30,7 +30,7 @@ const Caption = styled(Base)`
 `;
 
 const Body = styled(Base)`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
 `;
 

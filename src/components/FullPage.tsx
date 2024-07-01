@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import PageNavigation from "@components/PageNavigation";
 import { Section } from "./atomic/Section";
-import { Header } from "./Header";
 import { HomeSection } from "./sections/HomeSection";
+import { StationerySection } from "./sections/StationerySection";
+import { DeliverySection } from "./sections/DeliverySection";
 
 export const FullPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -12,9 +13,9 @@ export const FullPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (event: WheelEvent) => {
-    if (event.deltaY > 10) {
+    if (event.deltaY > 15) {
       nextSection();
-    } else if (event.deltaY < -10) {
+    } else if (event.deltaY < -15) {
       previousSection();
     }
   };
@@ -38,11 +39,9 @@ export const FullPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      containerRef.current?.children[0].scrollIntoView({
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: 0 });
     }, 100);
-  }, [containerRef]);
+  }, []);
 
   useEffect(() => {
     sectionsRef.current.forEach((section) => {
@@ -55,21 +54,23 @@ export const FullPage = () => {
   return (
     <>
       <Container ref={containerRef}>
-        <Header />
         <FullPageItem ref={(el) => (sectionsRef.current[0] = el!)}>
           <HomeSection />
         </FullPageItem>
         <FullPageItem ref={(el) => (sectionsRef.current[1] = el!)}>
-          <Section>Section 2</Section>
+          <StationerySection />
         </FullPageItem>
         <FullPageItem ref={(el) => (sectionsRef.current[2] = el!)}>
+          <DeliverySection />
+        </FullPageItem>
+        <FullPageItem ref={(el) => (sectionsRef.current[3] = el!)}>
           <Section>Section 3</Section>
         </FullPageItem>
       </Container>
       <PageNavigation
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        numPages={3}
+        numPages={4}
       />
     </>
   );
