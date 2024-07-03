@@ -6,8 +6,8 @@ import { HomePage } from "./pages/HomePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@style/Theme";
-import { SeasonPage } from "./pages/SeasonPage";
 import { Header } from "./components/Header";
+import { SpringPage } from "./pages/SpringPage";
 
 const queryClient = new QueryClient();
 
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/season",
-    element: <SeasonPage />,
+    path: "/spring",
+    element: <SpringPage />,
   },
 ]);
 
