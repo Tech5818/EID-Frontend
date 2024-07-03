@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "@style/Theme";
 import { Header } from "./components/Header";
 import { SpringPage } from "./pages/SpringPage";
+import { SummerPage } from "./pages/SummerPage";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/spring",
     element: <SpringPage />,
+  },
+  {
+    path: "/summer",
+    element: <SummerPage />,
   },
 ]);
 
