@@ -9,6 +9,8 @@ import { theme } from "@style/Theme";
 import { Header } from "./components/Header";
 import { SpringPage } from "./pages/SpringPage";
 import { SummerPage } from "./pages/SummerPage";
+import { AutumnPage } from "./pages/AutumnPage";
+import { WinterPage } from "./pages/WinterPage";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
   {
     path: "/summer",
     element: <SummerPage />,
+  },
+  {
+    path: "/autumn",
+    element: <AutumnPage />,
+  },
+  {
+    path: "/winter",
+    element: <WinterPage />,
   },
 ]);
 
